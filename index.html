@@ -1,45 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<style>
- 
-  .loader {
-    border: 8px solid #f3f3f3; /* Daire rengi */
-    border-top: 8px solid #3498db; /* İlerleme çizgisi rengi */
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 2s linear infinite; /* Dönme animasyonu */
-    margin: auto; /* Ortala */
-    margin-top: 100px;
-  }
-
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonsuz Öğe Oluşturma</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .content {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
+    <div class="content">
+        <h1>Sonsuz Öğe Oluşturma</h1>
+        <div class="item-container"></div>
+    </div>
+    <script>
+        const itemContainer = document.querySelector('.item-container');
 
-<div class="loader"></div>
-<div id="content">
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec dignissim justo.</p>
-</div>
+        function createNewElement() {
+            const newItem = document.createElement('p');
+            newItem.textContent = 'Yeni bir öğe oluşturuldu!';
+            itemContainer.appendChild(newItem);
+        }
 
-<script>
-window.addEventListener('load', function() {
-  var content = document.getElementById('content');
-  
-  function addContent() {
-    var paragraph = document.createElement('p');
-    paragraph.textContent = 'New Content...';
-    content.appendChild(paragraph);
-  }
-  
-  setInterval(addContent, 0,001); /
-});
-</script>
+        function createItems() {
+            createNewElement();
+            setTimeout(createItems, 100); // Her 100 milisaniyede bir yeni öğe oluştur
+        }
 
+        createItems(); // İlk başta işlemi başlat
+    </script>
 </body>
 </html>
