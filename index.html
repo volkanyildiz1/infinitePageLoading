@@ -2,7 +2,7 @@
 <html>
 <head>
 <style>
-  /* Yükleme animasyonu için stiller */
+ 
   .loader {
     border: 8px solid #f3f3f3; /* Daire rengi */
     border-top: 8px solid #3498db; /* İlerleme çizgisi rengi */
@@ -22,25 +22,22 @@
 </head>
 <body>
 
-<!-- Sonsuz yükleme ekranı ve içerik -->
 <div class="loader"></div>
 <div id="content">
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec dignissim justo.</p>
 </div>
 
 <script>
-// Sayfa yüklendikten sonra sürekli olarak içerik ekleyelim
 window.addEventListener('load', function() {
   var content = document.getElementById('content');
   
   function addContent() {
     var paragraph = document.createElement('p');
-    paragraph.textContent = 'Yeni içerik ekleniyor...';
+    paragraph.textContent = 'New Content...';
     content.appendChild(paragraph);
   }
   
-  // Belirli aralıklarla içerik ekleyelim
-  setInterval(addContent, 2000); // Her 2 saniyede bir içerik ekleyecek
+  setInterval(addContent, 100); /
 });
 </script>
 
